@@ -1,4 +1,17 @@
-{
+"name": "node-lxc",
+  "version": "0.0.1",
+  "description": "Node LXC Commands wrapper libarary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "dependencies": {},
-  "version": "0.0.1"
-}
+  "author": {
+    "name": "Mike Peters"
+  },
+  "license": "",
+  "readmeFilename": "README.md"
