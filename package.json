@@ -1,4 +1,5 @@
-"name": "node-lxc",
+{
+  "name": "node-lxc",
   "version": "0.0.1",
   "description": "Node LXC Commands wrapper libarary",
   "main": "index.js",
@@ -15,3 +16,4 @@
   },
   "license": "",
   "readmeFilename": "README.md"
+ }
