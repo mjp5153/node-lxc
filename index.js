@@ -22,7 +22,7 @@ lxc.create = function(name, template, callback){
 
 // save needing to specify 'ubuntu'
 lxc.createUbuntu = function(name, callback){
-    this.create(name, 'ubuntu', callback);
+    lxc.create(name, 'ubuntu', callback);
 };
 
 // Destroy Container: lxc-destroy -n <name>
@@ -75,14 +75,13 @@ lxc.stop = function(name, callback){
 
 // Get info: lxc-info -n <name>
 lxc.info = function(name, callback){
-    var self = this;
     callback = callback || () => {};
     var cmd = 'lxc-info -n ' + name;
     exec(cmd, function(error, stdout, stderr){
         if(error){
             callback(error, stdout, stderr);
         }
-        callback(null, self._parseInfo(stdout));
+        callback(null, lxc._parseInfo(stdout));
     });
 };
 
