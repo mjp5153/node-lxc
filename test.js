@@ -1,13 +1,25 @@
 #!/usr/bin/env node
 
-var LXC = require('./index.js');
+var lxc = require('./index.js');
 
-var lxc = new LXC();
+//var lxc = new LXC();
 
 var start = Date.now();
 var current = start;
 var last = start;
 console.log('BEGIN: 0ms');
+
+lxc.list(function(error, containers, stderr){
+    if(error) { console.log(error); console.log(stderr);}
+    for(var i in containers){
+        console.log('LS RESULTS: ' + containers[i]);
+    }
+});
+
+lxc.clone('icarus', 'icarus-1', function(error, stdout, stderr){
+    if(error) { console.log(error); console.log(stderr);}
+    console.log('CLONED IT!!!!!!');
+});
 
 lxc.createUbuntu('node-test', function(error, info, stderr){
     if(error) { console.log(error); console.log(stderr); process.exit();}
