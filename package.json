@@ -1,6 +1,6 @@
 {
   "name": "node-lxc",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Node LXC Commands wrapper libarary",
   "main": "index.js",
   "scripts": {
