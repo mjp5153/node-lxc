@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-var lxc = require('./index.js');
-
-//var lxc = new LXC();
+const lxc = require('./index.js');
 
 var start = Date.now();
 var current = start;

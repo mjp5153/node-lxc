@@ -3,14 +3,14 @@
     Wrapper Library for LXC Commands
 */
 
-var exec = require('child_process').exec;
-var os = require('os');
+const exec = require('child_process').exec;
+const os = require('os');
 
 var lxc = {};
 // Create Container: lxc-create -n <name> -t <template>
 //    - example: lxc-create -n ubuntu-container -t ubuntu
 lxc.create = function(name, template, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-create -n ' + name + ' -t ' + template;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -27,7 +27,7 @@ lxc.createUbuntu = function(name, callback){
 
 // Destroy Container: lxc-destroy -n <name>
 lxc.destroy = function(name, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-destroy -n ' + name;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -39,7 +39,7 @@ lxc.destroy = function(name, callback){
 
 // Clone Container: lxc-clone -o <existing-name> -n <new-name>
 lxc.clone = function(existingName, newName, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-clone -o ' + existingName + ' -n ' + newName;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -51,7 +51,7 @@ lxc.clone = function(existingName, newName, callback){
 
 // Start Container: lxc-start -d -n <name>
 lxc.start = function(name, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-start -d -n ' + name;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -63,7 +63,7 @@ lxc.start = function(name, callback){
 
 // Stop Container: lxc-stop -n <name>
 lxc.stop = function(name, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-stop -n ' + name;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -75,7 +75,7 @@ lxc.stop = function(name, callback){
 
 // Get info: lxc-info -n <name>
 lxc.info = function(name, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-info -n ' + name;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -104,7 +104,7 @@ lxc._parseInfo = function(rawInfo){
 //    - redirects will not work, so use bash -c 'command' if you need redirects
 //    - example: lxc-attach -n icarus-1 -- bash -c 'ps -ef | grep node'
 lxc.attach = function(name, command, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-attach -n ' + name + ' -- ' + command;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -123,7 +123,7 @@ lxc.attach = function(name, command, callback){
 // *NOTE* This requires the installation of lxc on the container:
 //              apt-get install -y --no-install-recommends lxc
 lxc.execute = function(name, command, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-execute -n ' + name + ' -- ' + command;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -135,7 +135,7 @@ lxc.execute = function(name, command, callback){
 
 // Pass Resource: lxc-device -n <name> add <interface-name> <interface-name-in-container>
 lxc.passResource = function(name, ifaceName, newIfaceName, callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-device -n ' + name + ' add ' + ifaceName + ' ' + newIfaceName;
     exec(cmd, function(error, stdout, stderr){
         if(error){
@@ -147,7 +147,7 @@ lxc.passResource = function(name, ifaceName, newIfaceName, callback){
 
 // List Containers: lxc-ls
 lxc.list = function(callback){
-    callback = callback || () => {};
+    callback = callback || function() {};
     var cmd = 'lxc-ls';
     exec(cmd, function(error, stdout, stderr){
         if(error){
