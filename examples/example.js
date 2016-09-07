@@ -58,7 +58,7 @@ lxc.createUbuntu(containerName).then(() => {
   console.log(JSON.stringify(info, null, 2));
   console.log(`INFO: ${current - last} ms`);
   console.log(`installing lxc in ${containerName}...`);
-  return lxc.attach(containerName, 'apt-get update; apt-get install -y --no-install-recommends lxc');
+  return lxc.attach(containerName, 'apt-get install -y --force-yes --no-install-recommends lxc');
 }).then(() => {
   last = current;
   current = Date.now();
