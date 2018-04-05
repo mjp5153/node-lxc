@@ -21,14 +21,6 @@ lxc.list().then(containers => {
   console.log(err);
 });
 
-//return;
-
-// lxc.clone('icarus', 'icarus-1').then(() => {
-//   console.log('CLONED IT!!!!!!');
-// }, err => {
-//   console.log(err);
-// });
-
 const containerName = 'node-test';
 
 console.log(`creating ${containerName}...`);

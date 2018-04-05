@@ -1,8 +1,5 @@
 {
   "name": "node-lxc",
-  "publishConfig": {
-    "registry": "https://npm.lab"
-  },
   "version": "2.0.0",
   "description": "Node LXC Commands wrapper library",
   "main": "index.js",
