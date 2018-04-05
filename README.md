@@ -1,3 +1,7 @@
 Node wrapper for LXC commands.
 
--- needs root privilege 
+*Note* needs root privilege
+
+To use:
+  npm install
+  node ./examples/example.js
