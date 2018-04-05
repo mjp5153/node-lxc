@@ -5,4 +5,4 @@ Node wrapper for LXC commands.
 To use:
 
 -  npm install
--  node ./examples/example.js
+-  sudo node ./examples/example.js
